@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :selections
+  resources :selections, only: [:index, :show, :new, :create]
   resources :users
-  resources :restaurants
+  resources :restaurants, only: [:index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
