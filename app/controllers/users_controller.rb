@@ -17,7 +17,12 @@ class UsersController < ApplicationController
 
     def create 
         user = User.create(user_params)
-        render json: user 
+        if user.valid?
+            session[:user_id] = user.id 
+            render json: user 
+        else
+            render json: { errors: user.errors.full_messages }
+        end
     end
 
     def edit
@@ -39,7 +44,7 @@ class UsersController < ApplicationController
     private 
 
     def user_params
-        params.require(:user).permit(username:, :score, :health)
+        params.require(:user).permit(username:, :score, :health, :password)
     end
 
 end
