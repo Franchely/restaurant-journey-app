@@ -6,7 +6,7 @@ class Restaurant < ApplicationRecord
     def self.create_restaurants
         client = SODA::Client.new({:domain => "data.cityofnewyork.us", :app_token => ENV["TOKEN"]})
     
-        response = client.get("43nn-pn8j", {"$limit" => 200})
+        response = client.get("43nn-pn8j", {"$limit" => 300})
 
         response.body.each do |restaurant| 
             name = restaurant.dba
