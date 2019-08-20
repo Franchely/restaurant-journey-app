@@ -49,3 +49,4 @@ ActiveRecord::Schema.define(version: 2019_08_20_015815) do
   add_foreign_key "selections", "restaurants"
   add_foreign_key "selections", "users"
 end
+
