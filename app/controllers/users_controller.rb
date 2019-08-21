@@ -18,11 +18,15 @@ class UsersController < ApplicationController
     def create 
         user = User.create(user_params)
         if user.valid?
-            session[:user_id] = user.id 
-            render json: user 
+            # session[:user_id] = user.id 
+            render json: { token: encode_token(user) }
         else
-            render json: { errors: user.errors.full_messages }
+            render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
+    end
+
+    def profile
+        render json: current_user
     end
 
     def edit
