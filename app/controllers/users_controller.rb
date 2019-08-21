@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
     def create 
         user = User.create(user_params)
+        byebug
         if user.valid?
             # session[:user_id] = user.id 
             render json: { token: encode_token(user) }
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
     end
 
     def profile
-        render json: current_user
+        render json: logged_in
     end
 
     def edit
@@ -42,13 +43,13 @@ class UsersController < ApplicationController
     def destroy
         user = User.find(params[:id])
         user.destroy 
-        render json: user
+        # render json: user
     end
 
     private 
 
     def user_params
-        params.require(:user).permit(:username, :score, :favorite_food, :password)
+        params.permit(:username, :score, :favorite_food, :password)
     end
 
 end
