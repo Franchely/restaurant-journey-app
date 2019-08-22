@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+    # Create a token for a given user
     def encode_token(user)
         payload = { user_id: user.id }
         JWT.encode(payload, 'secret', 'HS256')
@@ -13,7 +14,7 @@ class ApplicationController < ActionController::API
     end
 
     def decoded_token
-        # byebug
+        byebug
         JWT.decode(token, 'secret', true, { algorithm: 'HS256' })
     end
 
