@@ -1,24 +1,3 @@
-# README
+Frontend is located at: https://github.com/NinjaEagle/restaurant-journey-app-frontend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A click-through game created using NYC OpenData’s Restaurant Inspection Results as an API. The game allows you to select restaurants in each borough and the goal is to get through all five boroughs without getting sick.
