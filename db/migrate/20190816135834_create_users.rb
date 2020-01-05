@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :username
       t.integer :score
       t.string :health
-
+      
       t.timestamps
     end
   end
