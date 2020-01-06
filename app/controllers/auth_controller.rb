@@ -4,8 +4,8 @@ class AuthController < ApplicationController
     end
 
     def create
-        @user = User.find_by(username: params[:username])
-        if @user && @user.authenticate(params[:password])
+      @user = User.find_by(username: params[:username])
+      if @user && @user.authenticate(params[:password])
           flash[:message] = "Logging in #{@user.name}."
           session[:user_id] = @user.id
           render json: @user
@@ -21,3 +21,17 @@ class AuthController < ApplicationController
     end
 
 end
+
+
+# If auth is working, I would replace create with 
+
+#       is_authenticated = user.authenticate(params[:password])
+
+#       if is_authenticated
+#         user_token = encode_token(user)
+
+#         render json: {user: user.username, token: user_token, user_id: user.id}
+#       else 
+#         render json: {errors: ["Wrong username or password. Sorry!"]}, status: :unprocessible_entity
+#       end
+#     end
