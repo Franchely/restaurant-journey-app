@@ -77,9 +77,18 @@ test:
 #
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
-#
+development:
+  adapter: postgresql
+  database: restaurant-journey_development
+  pool: 5
+  timeout: 5000
+test:
+  adapter: postgresql
+  database: restaurant-journey_test
+  pool: 5
+  timeout: 5000
 production:
-  <<: *default
+  adapter: postgresql
   database: restaurant-journey_production
-  username: restaurant-journey
-  password: <%= ENV['RESTAURANT-JOURNEY_DATABASE_PASSWORD'] %>
+  pool: 5
+  timeout: 5000
